@@ -17,7 +17,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 #test1()
-#test2()
+#test2i()
 
 #Important pins (Broadcomm notation)
 trigger_get_caption = 15
@@ -68,8 +68,6 @@ GPIO.add_event_detect(trigger_volume_up, GPIO.FALLING, callback=cb3)
 GPIO.add_event_detect(trigger_volume_down, GPIO.FALLING, callback=cb4)
 GPIO.add_event_detect(trigger_shutdown, GPIO.FALLING, callback=cb5)
 GPIO.add_event_detect(trigger_restart, GPIO.FALLING, callback=cb6)
-
-
 
 while True:
     time.sleep(1e6)
