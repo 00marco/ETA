@@ -4,7 +4,7 @@ import sys
 from debouncer import *
 #from test1 import *
 #from test.test2 import *
-#import caption.py
+import caption
 #import webcam.py
 import threading
 
@@ -29,22 +29,43 @@ trigger_volume_down = 27
 trigger_shutdown = 18
 trigger_restart = 17
 
-def get_image_caption(pin):
+def get_caption(pin):
+    start = time.time()
     print("image caption")
+    print(caption.get_captions())
+    end = time.time()
+    print("{0} seconds elapsed".format(end - start))
 def toggle_depth(pin):
+    start = time.time()
     print("toggle depth")
+    end = time.time()
+    print("{0} seconds elapsed".format(end - start))
 def volume_up(pin):
+    start = time.time()
     print("volume up")
+    end = time.time()
+    print("{0} seconds elapsed".format(end - start))
 def volume_down(pin):
-    pass
+    start = time.time()
+    #something
+    end = time.time()
+    print("{0} seconds elapsed".format(end - start))
 def shutdown(pin):
-    pass
+    start = time.time()
+    #something
+    end = time.time()
+    print("{0} seconds elapsed".format(end - start))
 def restart(pin):
-    pass
+    start = time.time()
+    #something
+    end = time.time()
+    print("{0} seconds elapsed".format(end - start))
+
+
 
 GPIO.setup([trigger_get_caption, trigger_toggle_depth, trigger_volume_up, trigger_volume_down, trigger_shutdown, trigger_restart], GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-cb1 = ButtonHandler(trigger_get_caption, get_image_caption, edge='falling', bouncetime=100)
+cb1 = ButtonHandler(trigger_get_caption, get_caption, edge='falling', bouncetime=100)
 cb1.start()
 
 cb2 = ButtonHandler(trigger_toggle_depth, toggle_depth, edge='falling', bouncetime=100)
@@ -62,9 +83,9 @@ cb5.start()
 cb6 = ButtonHandler(trigger_restart, restart, edge='falling', bouncetime=100)
 cb6.start()
 
-GPIO.add_event_detect(trigger_get_caption, GPIO.FALLING, callback=cb1)
-GPIO.add_event_detect(trigger_toggle_depth, GPIO.FALLING, callback=cb2)
-GPIO.add_event_detect(trigger_volume_up, GPIO.FALLING, callback=cb3)
+GPIO.add_event_detect(trigger_get_caption, GPIO.FALLING, get_caption)
+GPIO.add_event_detect(trigger_toggle_depth, GPIO.FALLING, toggle_depth)
+GPIO.add_event_detect(trigger_volume_up, GPIO.FALLING, volume_up)
 GPIO.add_event_detect(trigger_volume_down, GPIO.FALLING, callback=cb4)
 GPIO.add_event_detect(trigger_shutdown, GPIO.FALLING, callback=cb5)
 GPIO.add_event_detect(trigger_restart, GPIO.FALLING, callback=cb6)
