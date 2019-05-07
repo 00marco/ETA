@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "C:\\Users\\MarcoPaolo\\Anaconda3\\envs\\eta_project\\python.exe",
+    "python.linting.pylintEnabled": false,
+    "python.linting.pep8Enabled": true,
+    "python.linting.enabled": true
+}
