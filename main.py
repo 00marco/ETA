@@ -32,7 +32,7 @@ trigger_restart = 17
 def get_caption(pin):
     start = time.time()
     print("image caption")
-    print(caption.get_captions())
+    print(caption.get_caption())
     end = time.time()
     print("{0} seconds elapsed".format(end - start))
 def toggle_depth(pin):

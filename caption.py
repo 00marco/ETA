@@ -14,17 +14,14 @@ def get_caption():
     response = requests.get(api_url)
 
     if response.status_code == 200:
-        return json.loads(response.content.decode('utf-8'))
+        account_info =  json.loads(response.content.decode('utf-8'))
     else:
-        return None
-
-
-account_info = get_caption()
-
-if account_info is not None:
-    print("Here is your info: ")
-    for a in account_info:
-        print(a["title"])
+        account_info = None
+    #*****************
+    if account_info is not None:
+        print("Here is your info: ")
+        for a in account_info:
+            print(a["title"])
     
 
 
