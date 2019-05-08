@@ -1,3 +1,4 @@
+
 import matplotlib.pyplot as pyplot
 import numpy as numpy
 
@@ -6,5 +7,3 @@ y = numpy.sin(x)
 pyplot.plot(x, numpy.sin(x))
 pyplot.show()
 
-
-print("Asd")
