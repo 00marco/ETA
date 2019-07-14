@@ -6,3 +6,7 @@ Use deep learning networks to implement Obstacle detection and Automated image c
 ## Installing the requirements
 1. cd to the directory
 2. run pip install -r requirements.txt
+
+
+
+<more docs to follow>
