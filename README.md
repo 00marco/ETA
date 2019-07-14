@@ -1,7 +1,8 @@
-# ETA
+Code for assistive device for the blind with obstacle detection and scene description capabilities
 
-This is a Raspberry Pi based Electronic Travel Aid. More docs to follow
+## Task
+Use deep learning networks to implement Obstacle detection and Automated image captioning on a Raspberry Pi 3 Model B
 
-Installing the requirements
+## Installing the requirements
 1. cd to the directory
 2. run pip install -r requirements.txt
