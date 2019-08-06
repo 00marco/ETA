@@ -1,0 +1,4 @@
+[submodule "pydnet-duplicate"]
+	path = pydnet-duplicate
+	url = https://github.com/00marco/pydnet-duplicate.git
+	branch = master
