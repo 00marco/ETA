@@ -16,9 +16,6 @@ sys.path.append('/home/pi/Desktop/ETA/test/')
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-#test1()
-#test2i()
-
 #Important pins (Broadcomm notation)
 trigger_get_caption = 17
 trigger_toggle_depth = 27
@@ -38,34 +35,50 @@ button_shutdown = Button(trigger_shutdown)
 def get_caption(pin):
     start = time.time()
     print("image caption")
-    print(caption.get_caption())
+    print(trigger_get_caption)
+    #print(caption.get_caption())
     end = time.time()
     print("{0} seconds elapsed".format(end - start))
+    print()
+
 def toggle_depth(pin):
     start = time.time()
     print("toggle depth")
+    print(trigger_toggle_depth)
     end = time.time()
     print("{0} seconds elapsed".format(end - start))
+    print()
+
 def volume_up(pin):
     start = time.time()
     print("volume up")
+    print(trigger_volume_up)
     end = time.time()
     print("{0} seconds elapsed".format(end - start))
+    print()
+
 def volume_down(pin):
     start = time.time()
-    #something
+    print("volume down")
+    print(trigger_volume_down)
     end = time.time()
     print("{0} seconds elapsed".format(end - start))
+    print()
+
 def shutdown(pin):
     start = time.time()
-    #something
+    print("shutdown")
+    print(trigger_shutdown)
     end = time.time()
     print("{0} seconds elapsed".format(end - start))
+    print()
+
 def restart(pin):
     start = time.time()
-    #something
+    print("restart")
     end = time.time()
     print("{0} seconds elapsed".format(end - start))
+    print()
 
 
 
