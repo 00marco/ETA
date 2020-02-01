@@ -24,48 +24,79 @@ trigger_volume_up = 15
 trigger_volume_down = 18
 
 trigger_shutdown = 22
-trigger_restart = 17
+#trigger_restart = 17
 
 button_get_caption = Button(trigger_get_caption)
 button_toggle_depth = Button(trigger_toggle_depth)
 button_volume_up = Button(trigger_volume_up)
 button_volume_down = Button(trigger_volume_down)
 button_shutdown = Button(trigger_shutdown)
+allowed_delay = 2 #in seconds
+volume_allowed_delay = 0.1
+#print("Running")
 
-def get_caption(pin):
+print("Running")
+
+
+get_caption_time = 0.0
+def get_caption():
     start = time.time()
+    global get_caption_time 
+    if(start - get_caption_time < allowed_delay):
+        get_caption_time = start
+        return
     print("image caption")
     print(trigger_get_caption)
     #print(caption.get_caption())
     end = time.time()
     print("{0} seconds elapsed".format(end - start))
     print()
+    get_caption_time = start
 
-def toggle_depth(pin):
+toggle_depth_time = 0.0
+def toggle_depth():
     start = time.time()
+    global toggle_depth_time
+    if(start - toggle_depth_time < allowed_delay):
+        toggle_depth_time = start
+        return
     print("toggle depth")
     print(trigger_toggle_depth)
     end = time.time()
     print("{0} seconds elapsed".format(end - start))
     print()
+    toggle_depth_time = start
 
-def volume_up(pin):
+volume_up_time = 0.0
+def volume_up():
     start = time.time()
+    global volume_up_time 
+   # if(start - volume_up_time < volume_allowed_delay):
+    #    volume_up_time = start
+    #    return
     print("volume up")
     print(trigger_volume_up)
     end = time.time()
     print("{0} seconds elapsed".format(end - start))
     print()
+    volume_up_time = start
 
-def volume_down(pin):
+volume_down_time = 0.0
+def volume_down():
     start = time.time()
+    global volume_down_time
+   # if(start - volume_down_time < volume_allowed_delay):
+    #    volume_down_time = start
+    #    return 
     print("volume down")
     print(trigger_volume_down)
     end = time.time()
     print("{0} seconds elapsed".format(end - start))
     print()
+    volume_down_time = start
 
-def shutdown(pin):
+
+def shutdown():
     start = time.time()
     print("shutdown")
     print(trigger_shutdown)
@@ -73,7 +104,7 @@ def shutdown(pin):
     print("{0} seconds elapsed".format(end - start))
     print()
 
-def restart(pin):
+def restart():
     start = time.time()
     print("restart")
     end = time.time()
@@ -117,8 +148,8 @@ button_shutdown.wait_for_press()
 #GPIO.add_event_detect(trigger_get_caption, GPIO.FALLING, callback=get_caption)
 #GPIO.add_event_detect(trigger_toggle_depth, GPIO.FALLING, callback=toggle_depth)
 #GPIO.add_event_detect(trigger_volume_up, GPIO.FALLING, callback=volume_up)
+#GPIO.add_event_detect(trigger_toggle_depth, GPIO.FALLING, callback=toggle_depth)
+#GPIO.add_event_detect(trigger_volume_up, GPIO.FALLING, callback=volume_up)
 #GPIO.add_event_detect(trigger_volume_down, GPIO.FALLING, callback=volume_down)
 #GPIO.add_event_detect(trigger_shutdown, GPIO.FALLING, callback=shutdown)
 
-while True:
-    time.sleep(1e6)
